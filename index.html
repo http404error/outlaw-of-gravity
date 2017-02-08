@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile Game</title>
+    <meta id="gameViewport" name="viewport" content="width=700, height=400, minimal-ui, user-scalable=yes, target-densityDpi=high-dpi">
+    <!--minimum-scale=0.6, maximum-scale=1.5, initial-scale=0.6, -->
+
+    <!-- This meta tag ensures that the toolbar at the bottom of the browser 
+        is hidden when this page is accessed frome the Home Screen. -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- The icon that should be used when added to the Home Screen -->
+    <link rel="apple-touch-icon" href="media/touch-icon.png"/>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="jquery.touchswipe.min.js"></script>
+    <script src="initialize.js"></script>
+	<script type="text/javascript" src="game.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css"></link>
+
+    <script type="text/javascript">
+        $(window).load(function(){
+            //Scroll past navigation bar
+            setTimeout(function(){window.scrollTo(0,0);},10);
+
+            // Prevent default on taps
+            $('#swiper').on('touchstart mousedown',function (e){
+                e.preventDefault();
+            }); 
+            $('#swiper').on('touchend mouseup touchcancel',function (e){
+                e.preventDefault();
+            });
+            $('#swiper').on('touchmove mousemove',function (e){
+                e.preventDefault();
+            });
+            
+            // Center the game on the page responsively
+            var $wrapper = $('#wrapper'),
+                $canvas = $('#canvas'), 
+                canvas_width = $canvas.width(),
+                canvas_height = $canvas.height(),
+                $window = $(window),
+                buttonHeight = (tileSize * 1),
+                buttonWidth = (tileSize * 4);
+
+            $window.resize(function(){
+                $wrapper.css({
+                    width: $window.innerWidth(),
+                    height: $window.innerHeight()
+                });
+
+                $('.menuCenter').css({
+                    marginLeft: ( canvas_width - (buttonWidth) ) / 2,
+                    textAlign: 'center'
+                });
+
+                $('#name').css({
+                    marginTop: ( canvas_height - (buttonHeight * 9) ) / 2,
+                    marginBottom: buttonHeight / 1.75,
+                    marginLeft: ( canvas_width - (buttonWidth * 2) ) / 2
+                });
+    
+                $(".center").css({
+                    marginLeft: -canvas_width/2,
+                    marginTop: -canvas_height/2
+                });
+
+            }).trigger('resize');
+
+            // Make the wrapper fill the screen to accept input from anywhere in the window
+            $('#swiper').css('touch-action', 'none'); // For new ie and future support in other browsers (been added to the spec but only ie supports it)
+            $('#swiper').css('ms-touch-action', 'none'); // For old versions of ie only
+
+            // Make the name/buttons in the menu the right size
+            $("#name").css({height: (buttonHeight * 3) + "px", width: (buttonWidth * 2) + "px", lineHeight: buttonHeight + "px"});
+            $(".menuCenter").css({
+                height: buttonHeight + "px", 
+                width: buttonWidth + "px", 
+                lineHeight: buttonHeight + "px", 
+                marginBottom: (buttonHeight / 4),
+                cursor: "pointer"
+            });
+
+            // Make the menu the right size
+            $("#menu").css({"height": (tileSize * 11) + "px", "width": (tileSize * 20) + "px"});
+
+            // Prevent scrolling
+            $('html, body').css({
+                'overflow': 'hidden',
+                'height': '100%'
+            });
+
+            $("#swiper").hide();
+            $("#canvas").hide();
+        });
+
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+	    <canvas id="canvas" class="center"></canvas>
+        <div id="menu" class="center">
+            <div id="menuWrapper">
+                <div id="courtesy">(Zoom out if border goes off-screen)</div>
+                <div id="name"></div>
+                <div class="menuCenter" id="resume">Play</div>
+                <div class="menuCenter" id="restart">Restart</div>
+                <div class="menuCenter" id="options">New Game</div>
+                <div class="menuCenter" id="hub">Return to Hub</div>
+            </div>
+        </div>
+        <div id="swiper"></div> <!-- Can't say input (even though that's what this is) because it's "reserved" by impact -->
+        <div id="pauseButton" class="center"></div>
+        <div id="spacer"></div>
+    </div>
+</body>
+</html>

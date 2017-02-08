@@ -1,0 +1,24 @@
+INTRO - ESCAPE VELOCITY
+indices 0-2
+
+WORLD 1 - HYPER BOX - CRATES
+hub is index 3
+levels are 4-13
+10/10 complete
+
+WORLD 2 - POINTED SPACE - SPIKES
+hub is index 14
+levels are 15-24
+10/10 complete
+
+WORLD 3 - ON RAILS - PLATFORMS
+hub is index 25
+levels are 26-35
+9/10 complete
+
+END
+hub index 36
+levels 37-39
+
+CREDITS
+non-hub index 40

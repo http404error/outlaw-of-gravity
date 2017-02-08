@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>asdfghjkl</title>
+	<style type="text/css">
+		html,body {
+			background-color: #333;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 12pt;
+		}
+		
+		.center {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	</style>
+
+	<script type="text/javascript" src="lib/impact/impact.js"></script>
+	<script type="text/javascript" src="lib/game/main.js"></script>
+    <meta id="gameViewport" name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+    <script type="text/javascript">
+        document.body.addEventListener('touchmove', function(event) {
+            event.preventDefault();
+        }, false);
+
+        
+	    //var mvp = document.getElementById('gameViewport');
+        //if( screen.width > screen.height ) {
+            //var scale = Math.min(1.0, 704.0 / screen.height);
+	        //mvp.setAttribute('content','height=704; initial-scale=' + scale + ';');
+        //} else {
+            //var scale = Math.min(1.0, 704.0 / screen.width);
+	        //mvp.setAttribute('content','width=704; initial-scale=' + scale + ';');
+        //}
+    </script>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+</html>

@@ -1,0 +1,46 @@
+html,body {
+	background-color: #333;
+	color: #fff;
+	font-family: helvetica, arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 12pt;
+    height: 100%;
+}
+
+/* Put swiper on top of canvas and make swiper fill the whole screen */
+#wrapper    { position: relative; height: 100%; width: 100%; }
+#swiper     { top: 0px; height: 100%; width: 100%; position: absolute; }
+.center     { position: absolute; top: 50%; left: 50%; }
+
+/* Make the menu colorful and other various css stuff */
+#menu          { background-color: #000; border: solid; border-width: 3px; border-color: #fff }
+#menuWrapper   { position:  absolute; color: #000 }
+#courtesy      { color: #fff; font-size: 11px; }
+#name          { background-image: url("media/logo.png"); background-repeat: no-repeat; background-size: contain }
+#pauseButton   { background-image: url("media/pause.png"); background-repeat: no-repeat; background-size: contain; width: 32px; height: 32px; cursor: pointer }
+#resume        { background-color: #00b2ff }
+#restart       { background-color: #fff }
+#hub           { background-color: #fff }
+#options       { background-color: #fff }
+
+@-ms-viewport {
+    height: 704px;
+    width: 1280px;
+}
+@-o-viewport { 
+    height: 704px;
+    width: 1280px;
+}
+@-webkit-viewport {
+    height: 704px;
+    width: 1280px;
+}
+@-viewport {
+    height: 704px; 
+    width: 1280px;
+}
+@viewport {
+    height: 704px; 
+    width: 1280px;
+}
